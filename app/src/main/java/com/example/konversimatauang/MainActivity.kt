@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.konversimatauang.databinding.ActivityMainBinding
 import java.text.NumberFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,9 +33,9 @@ class MainActivity : AppCompatActivity() {
             R.id.japaneseyen -> 114.51
             else -> 03831.34
         }
-        
+        val indonesianLocale = Locale("in", "ID")
         var Result = convertPrecentage * cost!!
-        val formattedConvert = NumberFormat.getCurrencyInstance().format(Result)
+        val formattedConvert = NumberFormat.getCurrencyInstance(indonesianLocale).format(Result)
         binding.result.text = getString(R.string.convert_result, formattedConvert)
     }
 }
